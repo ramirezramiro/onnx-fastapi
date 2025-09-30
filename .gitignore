@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.vscode/
+*.code-workspace
+*.ipynb_checkpoints/
+*.tar
+*.tar.gz
+.DS_Store
+Thumbs.db
