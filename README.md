@@ -62,7 +62,7 @@ flowchart LR
   end
 
   E[(Host FS)]
-  D --|"bind-mount (optional)"| E
+  D -->|"bind-mount (optional)"| E
 ```
 
 
