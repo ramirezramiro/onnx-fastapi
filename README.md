@@ -53,16 +53,16 @@ curl -X POST "http://localhost:8000/predict" \
 flowchart LR
   A[Client / cURL / App] -->|HTTP: /predict| B[FastAPI Service]
   B -->|NumPy tensors| C[ONNX Runtime]
-  C -->|CPU| D[(Model: model.onnx)]
+  C -->|CPU| D[(model.onnx)]
 
-  subgraph Docker Container
+  subgraph DockerContainer["Docker Container"]
     B
     C
     D
   end
 
   E[(Host FS)]
-  D ---|bind-mount (optional)| E
+  D --|"bind-mount (optional)"| E
 ```
 
 
