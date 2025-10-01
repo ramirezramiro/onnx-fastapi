@@ -48,6 +48,24 @@ curl -X POST "http://localhost:8000/predict" \
 }
 ```
 
+## Architecture Diagram
+```mermaid
+flowchart LR
+  A[Client / cURL / App] -->|HTTP: /predict| B[FastAPI Service]
+  B -->|NumPy tensors| C[ONNX Runtime]
+  C -->|CPU| D[(Model: model.onnx)]
+
+  subgraph Docker Container
+    B
+    C
+    D
+  end
+
+  E[(Host FS)]
+  D ---|bind-mount (optional)| E
+```
+
+
 ## Final takeaway 
 
 FastAPI exposes /health and /predict.
